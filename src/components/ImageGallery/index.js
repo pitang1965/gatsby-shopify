@@ -1,13 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'gatsby-image';
 import { ImageGalleryWrapper } from './styles';
 import ImageThumbnail from './ImageThumbnail';
 
-export function ImageGallery({ images }) {
-  const [activeImageThumbnail, setActiveImageThumbnail] = useState(images[0]);
-  const handleClick = (image) => {
-    setActiveImageThumbnail(image)
-  }
+export const ImageGallery = ({ selectedVariantImageId, images }) => {
+  const [activeImageThumbnail, setActiveImageThumbnail] = useState(
+    images.find(({ id }) => id === selectedVariantImageId) || images[0]
+  );
+
+  useEffect(() => {
+    setActiveImageThumbnail(images.find(({ id }) => id === selectedVariantImageId) || images[0]);
+  }, [selectedVariantImageId, setActiveImageThumbnail, images]);
+
+  const handleClick = image => {
+    setActiveImageThumbnail(image);
+  };
+
   return (
     <ImageGalleryWrapper>
       <div>
@@ -19,11 +27,12 @@ export function ImageGallery({ images }) {
             <ImageThumbnail
               key={image.id}
               isActive={activeImageThumbnail.id === image.id}
-              onClick={handleClick} image={image}
+              onClick={handleClick}
+              image={image}
             />
           );
         })}
       </div>
     </ImageGalleryWrapper>
   );
-}
+};
