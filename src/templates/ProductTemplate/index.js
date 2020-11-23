@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-onchange */
 import React, { useContext, useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
-import { Layout, ImageGallery } from 'components';
+import { Layout, ImageGallery, ProductQuantityAdder } from 'components';
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from 'context/CartContext.js';
 import { navigate, useLocation } from '@reach/router';
@@ -83,7 +83,15 @@ const ProductTemplate = props => {
                   </select>
                 </SelectWrapper>
               )}
-              {!!selectedVariant && <Price>{selectedVariant.price}円</Price>}
+              {!!selectedVariant && (
+                <>
+                  <Price>{selectedVariant.price}円</Price>
+                  <ProductQuantityAdder
+                    available={selectedVariant.available}
+                    variantId={selectedVariant.id}
+                  />
+                </>
+              )}
             </>
           )}
         </div>
