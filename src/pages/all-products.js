@@ -20,6 +20,7 @@ const AllProducts = () => {
   const qs = queryString.parse(search);
   const selectedCollectionIds = qs.c?.split(',').filter(c => !!c) || [];
   const selectedCollectionIdsMap = {};
+  const searchTerm = qs.s;
 
   selectedCollectionIds.forEach(collectionId => {
     selectedCollectionIdsMap[collectionId] = true;
@@ -49,16 +50,44 @@ const AllProducts = () => {
     return true; // カテゴリが何も選ばれていない場合
   };
 
-  const filteredProducts = products.filter(filterByCategory);
+  const filterBySearchTerm = product => {
+    if (searchTerm) {
+      return product.title.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0;
+    }
+
+    return true;
+  };
+
+  const filteredProducts = products
+    .filter(filterByCategory)
+    .filter(filterBySearchTerm);
 
   return (
     <Layout>
-      <h4>{filteredProducts.length}個の商品</h4>
+      {!!searchTerm && !!filteredProducts.length && (
+        <h3>
+          <strong>"{searchTerm}"</strong> で検索
+        </h3>
+      )}
+      {!!filteredProducts.length && <h4>{filteredProducts.length}個の商品</h4>}
       <Content>
         <Filters />
-        <div>
-          <ProductsGrid products={filteredProducts} />
-        </div>
+        {!filteredProducts.length && (
+          <div>
+            <h3>
+              <span>"{searchTerm}"</span>&nbsp;
+              <span>の検索に一致する商品はありませんでした。</span>
+            </h3>
+            <div>
+              キーワードが正しく入力されていても一致する商品がない場合は、別の言葉をお試しください。
+            </div>
+          </div>
+        )}
+        {!!filteredProducts.length && (
+          <div>
+            <ProductsGrid products={filteredProducts} />
+          </div>
+        )}
       </Content>
     </Layout>
   );
