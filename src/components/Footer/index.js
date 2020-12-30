@@ -11,7 +11,7 @@ export const Footer = () => {
         プライバシー規約 ｜
       </div>
       <div>
-      Powerd by <a href= "https://over40webclub.netlify.app/" target="_blank" >Over 40 Web Club</a>
+      Powerd by <a href= "https://over40webclub.netlify.app/" target="_blank" rel="noreferrer">Over 40 Web Club</a>
       </div>
     </FooterWrapper>
   );
