@@ -15,3 +15,4 @@ export * from './ProductsGrid';
 export * from './Filters';
 export * from './Checkbox';
 export * from './Search';
+export * from './Footer';
