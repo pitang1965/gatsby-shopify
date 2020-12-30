@@ -4,8 +4,8 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Shopify Starter`,
-    description: `Gatsby & Shopify Starter for the WebDevEducation course.`,
+    title: `Over 40 Web Shop`,
+    description: `Over 40 Web Shop は Over 40 Web Club が運営するオンラインショップです。`,
     author: `@tomphill`,
   },
   plugins: [
@@ -51,7 +51,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`,
+        icon: `src/images/logo.png`,
       },
     },
   ],

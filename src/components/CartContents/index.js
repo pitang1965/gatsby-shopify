@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
+import { navigate } from '@reach/router';
 import CartContext from 'context/CartContext';
-import { CartItem, CartHeader, CartFooter } from './styles';
+import { Button } from '../Button/';
+import { CartItem, CartHeader, CartFooter, Footer } from './styles';
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
 
@@ -14,12 +16,14 @@ export const CartContents = () => {
   return (
     <section>
       <h1>ショッピングカート</h1>
-      <CartHeader>
-        <div>商品名</div>
-        <div>価格</div>
-        <div>数量</div>
-        <div>合計</div>
-      </CartHeader>
+      {!!checkout?.lineItems && (
+        <CartHeader>
+          <div>商品名</div>
+          <div>価格</div>
+          <div>数量</div>
+          <div>合計</div>
+        </CartHeader>
+      )}
       {checkout?.lineItems?.map(item => (
         <CartItem key={item.variant.id}>
           <div>
@@ -28,24 +32,45 @@ export const CartContents = () => {
               {item.variant.title === 'Default Title' ? '' : item.variant.title}
             </div>
           </div>
-          <div>&yen;{item.variant.price.toLocaleString()}</div>
+          <div>&yen;{parseInt(item.variant.price).toLocaleString()}</div>
           <div>
             <QuantityAdjuster item={item} onAdjust={handleAdjustQuantity} />
           </div>
           <div>
             &yen;{(item.quantity * item.variant.price).toLocaleString()}
           </div>
-          <div><RemoveLineItem lineItemId={item.id}/></div>
+          <div>
+            <RemoveLineItem lineItemId={item.id} />
+          </div>
         </CartItem>
       ))}
-      <CartFooter>
+      {!!checkout?.lineItems && (
+        <CartFooter>
+          <div>
+            <strong>小計: </strong>
+          </div>
+          <div>
+            <span>&yen;{parseInt(checkout?.totalPrice).toLocaleString()}</span>
+          </div>
+        </CartFooter>
+      )}
+      {!checkout?.lineItems && (<h4>お客様のShopifyカートに商品はありません。</h4>)}
+      <Footer>
         <div>
-          <strong>小計: </strong>
+          <Button onClick={() => navigate(-1)}>お買い物を続ける</Button>
         </div>
         <div>
-          <span>&yen;{parseInt(checkout?.totalPrice).toLocaleString()}</span>
+          {!!checkout?.webUrl && (
+            <Button
+              onClick={() => {
+                window.location.href = checkout.webUrl;
+              }}
+            >
+              レジに進む
+            </Button>
+          )}
         </div>
-      </CartFooter>
+      </Footer>
     </section>
   );
 };

@@ -13,6 +13,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
+      <SEO description="Over 40 Web Shopホームページ" title="ホームページ" />
       <HomepageCollectionsGrid
         collections={collections.filter(
           collection => collection.title !== '店長のおすすめ'

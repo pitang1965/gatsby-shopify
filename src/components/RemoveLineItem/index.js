@@ -11,6 +11,7 @@ export const RemoveLineItem = ({ lineItemId }) => {
   };
 
   return (
+    // eslint-disable-next-line
     <div onClick={handleClick}>
       <Icon>
         <FaTrashAlt />
