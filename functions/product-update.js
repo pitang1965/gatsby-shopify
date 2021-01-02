@@ -7,7 +7,7 @@
 // 本関数は Shopify から Netlify functions 経由で呼び出される。
 
 const faunadb = require('faunadb');
-const verifyWebhookIntegrity = require('verify-shopify-webhook');
+const verifyWebhookIntegrity = require('shopify-verify-webhook');
 const axios = require('axios');
 
 const q = faunadb.query;
