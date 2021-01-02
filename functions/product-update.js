@@ -22,14 +22,14 @@ const rebuild = () => {
 
 exports.handler = function (event, context, callback) {
   const isValid = verifyWebhookIntegrity(
-    process.env.SHOPIFY_WEB_HOOK_KEY,
+    process.env.SHOPIFY_WEBHOOK_KEY,
     event.headers['x-shopify-hmac-sha256'],
     event.body
   );
 
   // Shopifyから呼ばれたか否か
   if (isValid) {
-    const body = JSON.parse(evnet.body);
+    const body = JSON.parse(event.body);
     const { id } = body;
 
     // Faunaに格納してあるデータと比較するために余計なデータを削ぎ落とす
