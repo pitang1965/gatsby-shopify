@@ -15,11 +15,6 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SECRET,
 });
 
-const rebuild = () => {
-  axios.post(process.env.NETLIFY_BUILD_URL);
-  console.log('リビルドを実行');
-};
-
 exports.handler = function (event, context, callback) {
   const isValid = verifyWebhookIntegrity(
     process.env.SHOPIFY_WEBHOOK_KEY,
@@ -46,7 +41,8 @@ exports.handler = function (event, context, callback) {
       .then(result => {
         // Faunaから取得したデータから変更されている（リビルド必要）かどうか
         if (result.data.product !== bodyString) {
-          rebuild();
+          console.log('リビルドを実行');
+          axios.post(process.env.NETLIFY_BUILD_URL);
 
           // Faunaのデータを更新する（リビルド必要）
           client
@@ -56,7 +52,8 @@ exports.handler = function (event, context, callback) {
               })
             )
             .then(() => {
-              rebuild();
+              console.log('リビルドを実行');
+              axios.post(process.env.NETLIFY_BUILD_URL);
             })
             .catch(e => {
               console.log('Fauna DBのデータの更新に失敗: ', e);
@@ -74,7 +71,8 @@ exports.handler = function (event, context, callback) {
             })
           )
           .then(() => {
-            rebuild();
+            console.log('リビルドを実行');
+            axios.post(process.env.NETLIFY_BUILD_URL);
           })
           .catch(e => {
             console.log('Fauna DBへのデータの追加に失敗: ', e);
