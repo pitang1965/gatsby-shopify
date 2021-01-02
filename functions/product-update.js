@@ -37,7 +37,7 @@ exports.handler = function (event, context, callback) {
     const bodyString = JSON.stringify(body);
 
     client
-      .query(q.Get(q.Match(q.Index('product_by_id', id))))
+      .query(q.Get(q.Match(q.Index('product_by_id'), id)))
       .then(result => {
         // Faunaから取得したデータから変更されている（リビルド必要）かどうか
         if (result.data.product !== bodyString) {
