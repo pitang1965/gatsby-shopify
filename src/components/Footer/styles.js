@@ -2,7 +2,11 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer`
   display: flex;
+  position: absolute; // 絶対位置
+  bottom: 0;
+
   max-width: 1200px;
+  width: 100%; // 親要素に対する割合
   margin: 0 auto;
   padding: 10px 20px;
   box-sizing: border-box;
