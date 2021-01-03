@@ -11,15 +11,15 @@ export const FooterWrapper = styled.footer`
   padding: 10px 20px;
   box-sizing: border-box;
   flex-wrap: wrap;
-  color: #dddddd;
-  background: #131a22;
+  color: #333232;
+  background: #F6F6F6;
   font-size: 11px;
 
   > div {
     padding: 4px;
     >a {
       text-decoration: none;
-      color: #dddddd;
+      color: #333232;
 
       :hover {
         text-decoration: underline;
