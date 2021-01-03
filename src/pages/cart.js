@@ -5,7 +5,7 @@ const CartPage = () => {
   return (
     <Layout>
       <SEO
-        description="Over 40 Web Shopショッピングカート"
+        description="Over 40 Web Shop"
         title="ショッピングカート"
       />
       <CartContents />

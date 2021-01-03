@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Over 40 Web Shop`,
     description: `Over 40 Web Shop は Over 40 Web Club が運営するオンラインショップです。`,
-    author: `@tomphill`,
+    author: `@pitang1965`,
   },
   plugins: [
     `gatsby-plugin-styled-components`,

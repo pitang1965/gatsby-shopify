@@ -64,7 +64,7 @@ const AllProducts = () => {
 
   return (
     <Layout>
-      <SEO description="Over 40 Web Shop全ての商品" title="全ての商品" />
+      <SEO description="Over 40 Web Shop" title="全ての商品" />
       {!!searchTerm && !!filteredProducts.length && (
         <h3>
           <strong>"{searchTerm}"</strong> で検索
