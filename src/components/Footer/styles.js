@@ -16,7 +16,7 @@ export const FooterWrapper = styled.footer`
   font-size: 11px;
 
   > div {
-    padding: 4px;
+    padding: 2px;
     >a {
       text-decoration: none;
       color: #333232;

@@ -2,11 +2,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import {
+  SEO,
   Layout,
   ImageGallery,
   ProductQuantityAdder,
   Button,
-  SEO,
 } from 'components';
 import { Grid, SelectWrapper, Price } from './styles';
 import CartContext from 'context/CartContext.js';
@@ -57,15 +57,17 @@ const ProductTemplate = props => {
   return (
     <Layout>
       <SEO
-        description={props.data.shopifyProduct.description}
         title={props.data.shopifyProduct.title}
+        description={props.data.shopifyProduct.description}
       />
       <Button onClick={() => navigate(-1)}>前のページに戻る</Button>
       <Grid>
         <div>
           <h1>{props.data.shopifyProduct.title}</h1>
           <p>{props.data.shopifyProduct.description}</p>
-          {!product?.availableForSale && <h4>在庫切れ / この商品は現在お取り扱いできません</h4>}
+          {!product?.availableForSale && (
+            <h4>在庫切れ / この商品は現在お取り扱いできません</h4>
+          )}
           {product?.availableForSale && !!selectedVariant && (
             <>
               {product?.variants.length > 1 && (

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import {
-  Layout,
   SEO,
+  Layout,
   HomepageCollectionsGrid,
   FeaturedProducts,
 } from 'components';
