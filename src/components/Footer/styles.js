@@ -2,28 +2,36 @@ import styled from 'styled-components';
 
 export const FooterWrapper = styled.footer`
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute; // 絶対位置
   bottom: 0;
+  opacity: 50%;
+  height: 60px;
 
   max-width: 1200px;
   width: 100%; // 親要素に対する割合
-  margin: 0 auto;
-  padding: 10px 20px;
-  box-sizing: border-box;
-  flex-wrap: wrap;
-  color: #333232;
-  background: #F6F6F6;
-  font-size: 11px;
 
-  > div {
+  ul {
+    display: flex;
+    justify-content: center;
+  }
+  div {
+    display: flex;
+    justify-content: center;
     padding: 2px;
-    >a {
+    font-size: 12px;
+    color: #333232;
+    > a {
       text-decoration: none;
-      color: #333232;
-
       :hover {
         text-decoration: underline;
       }
     }
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row-reverse;
+    height: 30px;
   }
 `;

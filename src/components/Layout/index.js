@@ -2,14 +2,18 @@ import React from 'react';
 import { LayoutWrapper } from './styles';
 import { Header } from '../Header';
 import { Footer } from '../Footer';
+import { GlobalStyles } from 'twin.macro';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...rest }) => {
   return (
-    <LayoutWrapper>
-      <Header />
-      <main>{children}</main>
-      <Footer />
-    </LayoutWrapper>
+    <div {...rest}>
+      <GlobalStyles />
+      <LayoutWrapper>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </LayoutWrapper>
+    </div>
   );
 };
 

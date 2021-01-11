@@ -4,12 +4,16 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    links: {
+      twitter: 'https://twitter.com/pitang1965',
+      instagram: 'https://www.instagram.com/pitang1965/',
+    },
     title: `Over 40 Web Shop`,
     description: `Over 40 Web Shop は Over 40 Web Club が運営するオンラインショップです。`,
     author: `@pitang1965`,
-    url: "https://over40webshop.netlify.app",
-    image: "/images/twitter.png",
-    twitterUsername: "@pitang1965",
+    url: 'https://over40webshop.netlify.app',
+    image: '/images/twitter.png',
+    twitterUsername: '@pitang1965',
   },
   plugins: [
     `gatsby-plugin-styled-components`,

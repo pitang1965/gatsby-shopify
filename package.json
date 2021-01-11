@@ -1,10 +1,16 @@
 {
+  "babelMacros": {
+    "twin": {
+      "preset": "styled-components"
+    }
+  },
   "name": "gatsby-shopify-starter",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby & Shopify.",
   "version": "0.1.0",
   "author": "Tom Phillips <info@tomphill.co.uk>",
   "dependencies": {
+    "@emotion/react": "^11.1.4",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.10.7",
     "faunadb": "^4.0.0",
@@ -29,7 +35,9 @@
     "shopify-buy": "^2.11.0",
     "shopify-verify-webhook": "^1.0.1",
     "styled-components": "^5.1.1",
-    "styled-reset": "^4.2.0"
+    "styled-reset": "^4.2.0",
+    "tailwindcss": "^2.0.2",
+    "twin.macro": "^2.0.8"
   },
   "devDependencies": {
     "prettier": "2.0.5"
