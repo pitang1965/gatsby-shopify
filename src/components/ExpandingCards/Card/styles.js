@@ -18,9 +18,16 @@ export const CardWrapper = styled.div`
   color: #fff;
   cursor: pointer;
   flex: ${({ isActive }) => (isActive ? '5' : '0.5')};
-  margin: 4px;
   position: relative;
   transition: flex 0.7s ease-in;
+  margin: 4px;
+
+  &: first-child {
+    margin-left: 0px;
+  }
+  &: last-child {
+    margin-right: 0px;
+  }
 
   &:hover {
     ${({ isActive }) =>
