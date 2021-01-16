@@ -6,7 +6,6 @@ export const FooterWrapper = styled.footer`
   justify-content: center;
   position: absolute; // 絶対位置
   bottom: 0;
-  opacity: 50%;
   height: 60px;
 
   max-width: 1200px;
