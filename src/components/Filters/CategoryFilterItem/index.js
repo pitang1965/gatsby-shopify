@@ -1,4 +1,5 @@
 import React from 'react';
+// eslint-disable-next-line
 import { Checkbox } from 'components';
 import { navigate, useLocation } from '@reach/router';
 import { CategoryFilterItemWrapper } from './styles';
