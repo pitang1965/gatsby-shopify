@@ -11,7 +11,7 @@ export const Footer = () => {
       meta: { links },
     },
   } = useStaticQuery(graphql`
-    query FooterQuery {
+    {
       site {
         meta: siteMetadata {
           links {
