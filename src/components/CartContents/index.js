@@ -2,7 +2,14 @@ import React, { useContext } from 'react';
 import { navigate } from '@reach/router';
 import CartContext from 'context/CartContext';
 import { Button } from '../Button/';
-import { CartItem, CartHeader, CartFooter, Footer } from './styles';
+import {
+  CartTitle,
+  Note,
+  CartItem,
+  CartHeader,
+  CartFooter,
+  Footer,
+} from './styles';
 import { QuantityAdjuster } from '../QuantityAdjuster';
 import { RemoveLineItem } from '../RemoveLineItem';
 
@@ -15,7 +22,11 @@ export const CartContents = () => {
 
   return (
     <section>
-      <h1>ショッピングカート</h1>
+      <CartTitle>ショッピングカート</CartTitle>
+      <Note>
+        デモサイトなので実際の商品は届きませんが、購入シミュレーションは可能です。
+      </Note>
+      <Note>カード番号:1、カードの名義人: Bogus Gateway をお使いください</Note>
       {!!checkout?.lineItems && (
         <CartHeader>
           <div>商品名</div>
@@ -54,7 +65,9 @@ export const CartContents = () => {
           </div>
         </CartFooter>
       )}
-      {!checkout?.lineItems && (<h4>お客様のShopifyカートに商品はありません。</h4>)}
+      {!checkout?.lineItems && (
+        <h4>お客様のShopifyカートに商品はありません。</h4>
+      )}
       <Footer>
         <div>
           <Button onClick={() => navigate(-1)}>お買い物を続ける</Button>
