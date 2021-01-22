@@ -1,6 +1,6 @@
 import React from 'react';
 import 'twin.macro';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { FooterWrapper } from './styles';
 import { FaTwitter, FaInstagram } from 'react-icons/fa';
 import { FooterIconLink } from './FooterIconLink';
@@ -38,7 +38,8 @@ export const Footer = () => {
         />
       </ul>
       <div>
-        <div>利用規約 ｜</div>
+        <Link to="/terms-of-service">利用規約 ｜</Link>
+        <Link to="/refund-policy">返金ポリシー ｜</Link>
         <div>プライバシー規約 ｜</div>
         <div>
           Powerd by{' '}
