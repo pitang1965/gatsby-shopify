@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { SEO, Layout } from 'components';
 
+const organization = 'ピータン株式会社';
+const shopName = 'Over 40 Web Shop';
+const email = 'xxx@pitang1965.com';
+const contactInfo = '電話番号：090-9999-9999 (9:00～17:00)';
+
 const Title = styled.div`
   font-size: 200%;
   font-weight: bold;
-  margin-bottom: 4px;
+  margin-bottom: 1rem;
 `;
 
 const Heading1 = styled.div`
@@ -22,18 +27,45 @@ const Heading2 = styled.div`
   margin-bottom: 4px;
 `;
 
-const NumberdList = styled.ol`
+const Text = styled.p`
+  margin-left: calc(2rem / 2);
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 2rem;
+`;
+
+
+const NumberdList1 = styled.ol`
+  margin-left: 2rem;
+  margin-right: 0;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  padding: 0;
+  list-style-type: decimal;
+  list-style-position: outside;
+  list-style-image: none;
+
+  li {
+    margin-bottom: calc(2rem / 2);
+  }
+}
+`;
+
+const NumberdList2 = styled.ol`
+  margin-left: 2rem;
+  margin-bottom: calc(2rem / 2);
+  margin-top: calc(2rem / 2);
+  list-style-type: decimal;
   list-style: none;
-  counter-reset: item;
 
   li {
     counter-increment: item;
+    position: relative;
     &:before {
-      margin-right: 10px;
-      content: counters(item, '.') ' ';
-      display: inline-block;
-    }
-  }
+      content: counters(item, ".") ")  ";
+  display: inline-block;
+  position: absolute;
+  left: -2rem;
 `;
 
 const BulletedList = styled.ul`
@@ -42,26 +74,21 @@ const BulletedList = styled.ul`
   margin-left: 2rem;
 `;
 
-const organization = 'ピータン株式会社';
-const shopName = 'Over 40 Web Shop';
-const email = 'xxx@pitang1965.com';
-const contactInfo = '電話番号：090-9999-9999 (9:00～17:00)';
-
 const TermsOfService = () => {
   return (
     <Layout>
       <SEO description="Over 40 Web Shop" title="利用規約" />
       <Title>利用規約</Title>
       <Heading1>第1条 本規約の適用範囲および変更</Heading1>
-      <p>
+      <Text>
         本規約は、{organization}
         (以下「当社」といいます。）が運営するネットショップ（オンラインストア）である「
         {shopName}
         」（以下「本サービス」といいます。）の提供およびその利用に関し、本サービスの閲覧、購入などの利用を行う者（以下「利用者」といいます。）と
         当社に適用されるものとします。
-      </p>
+      </Text>
       <Heading1>第2条 本サービスの利用</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           利用者は、本規約および当社が別途定めるショッピングガイドなどに従い、本サービスを利用するものとします。
         </li>
@@ -78,9 +105,9 @@ const TermsOfService = () => {
         <li>
           利用者は、その住所、氏名、電話番号、メールアドレスおよびその他登録事項に変更が生じた場合には、当社が別途指定する方法により届け出るものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第3条 会員登録</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           利用者は、本サービスを利用し、商品を購入するにあたり、会員登録の申請を行うことができます。
         </li>
@@ -89,12 +116,12 @@ const TermsOfService = () => {
           {email}
           )が受信できるように設定をお願いいたします。最新情報やキャンペーン情報などについてメールによる配信停止をご希望の方は、メールでお知らせください。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第4条 本サービスの提供停止、会員登録の抹消</Heading1>
-      <p>
+      <Text>
         当社は、利用者が以下に定める各号のいずれかに該当する場合、利用者に事前通知することなく本サービスの提供の停止または会員登録の抹消を行うことができるものとします。
-      </p>
-      <NumberdList>
+      </Text>
+      <NumberdList1>
         <li>
           利用者が実在しない場合、または第三者になりすまして会員登録を行い、もしくは本サービスを利用した場合
         </li>
@@ -107,19 +134,19 @@ const TermsOfService = () => {
           反社会的勢力（暴力団、暴力団員、暴力団員でなくなった時から5年を経過しない者、暴力団準構成員、暴力団関係企業、総会屋、社会運動標ぼうゴロまたは特殊知能暴力集団、その他これらに準ずる者をいいます。）に該当する場合
         </li>
         <li>その他本規約に違反した場合</li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第5条 退会</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           退会を希望する場合には、利用者は当社が指定する方法に従い退会申請を行うものとします。
         </li>
         <li>
           当社は利用者の退会後も、一定期間、利用者の情報を保持する場合があります。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第6条 禁止事項</Heading1>
-      <p>利用者は以下の行為を行ってはならないものとします。</p>
-      <NumberdList>
+      <Text>利用者は以下の行為を行ってはならないものとします。</Text>
+      <NumberdList1>
         <li>会員登録また本サービスの利用の際に虚偽の内容を申請する行為</li>
         <li>
           本サービスの運営を妨げる行為、その他本サービスに支障をきたすおそれのある行為
@@ -132,15 +159,15 @@ const TermsOfService = () => {
           公序良俗に反する行為その他法令に違反する行為、またはそれらのおそれのある行為
         </li>
         <li>その他、当社が不適当と判断する行為</li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第7条 著作権等</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           本サービスにおいて使用されている文字、文言、画像、写真、映像、音声およびデザイン等に関する著作権、商標権を含む知的財産権、肖像権、パブリシティ権、その他の全ての権利は、当社またはその他の正当な権利者に帰属するものであり、利用者はこれらの権利を侵害する行為を行ってはならないものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第8条 IDおよびパスワードの管理</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           利用者は、利用者自身で設定したIDおよびパスワードの管理責任を負うものとします。
         </li>
@@ -153,26 +180,26 @@ const TermsOfService = () => {
         <li>
           利用者は、本サービスの利用の際に行うクレジットカード番号の送信行為などに伴う漏洩などの危険性を認識し、自己の責任の下にこれを行うものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第9条 利用者情報(個人情報)</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           当社は、本サービスの利用に関連して取得した利用者の個人情報を、プライバシーポリシーに基づき、適切に取り扱うものとします。
         </li>
         <li>
           利用者は、以下に定める方法により自己の個人情報の更新・利用停止を行うことができます。
-          <NumberdList>
+          <NumberdList2>
             <li>
               更新を行う場合は、以下のページにアクセスして行ってください。
             </li>
             <li>
               利用停止を行う場合は、当社までお問い合わせください。{contactInfo}
             </li>
-          </NumberdList>
+          </NumberdList2>
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第10条 商品の購入</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>利用者は、本サービスを利用して商品を購入することができます。</li>
         <li>
           利用者が、商品の購入を希望する場合は、当社が指定する方法に従って商品の購入を申し込むものとします。
@@ -181,12 +208,12 @@ const TermsOfService = () => {
           当社が利用者に対して、前項の申し込みを承諾する旨のメールを利用者宛に発信した時点で利用者と当社との間に当該商品に関する売買契約（以下「売買契約」といいます。）が成立するものとします。当該メールを利用者宛に発信した後は、利用者の都合による売買契約の取消し・解除はできないものとします。ただし、当該メールを利用者宛に発信した後であっても、当社において、当該注文商品の数量・金額・内容等が通常の利用の範囲を超える疑いがあると判断した場合、当該利用者への電話もしくはメールでの確認または売買契約の取消し等の措置をとる場合があります。
         </li>
         <li>本サービスによる商品の配送は、日本国内に限るものとします。</li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第11条 契約の解除</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           以下の各号のいずれかにあたる事由が生じた場合には、当社は売買契約を解除することができるものとします。
-          <NumberdList>
+          <NumberdList2>
             <li>利用者が本規約に違反した場合</li>
             <li>
               利用者指定のクレジットカード会社からカード与信不履行の旨の連絡があった場合
@@ -199,17 +226,17 @@ const TermsOfService = () => {
             <li>
               利用者が登録した電話やメールアドレスに連絡が取れず、本人確認ができない場合
             </li>
-          </NumberdList>
+          </NumberdList2>
         </li>
         <li>
           前項の規定にかかわらず、本サービスの利用に関して利用者の不正な行為または不適切な行為があった場合、当社は売買契約の取消しまたは解除その他適切な措置をとることができるものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第12条 情報の管理</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           当社は、利用者が発信したコメントその他の情報について、以下の各号のいずれか一つにでも該当する場合には、当社の判断によって、利用者に断りなくこれを削除することができるものとします。
-          <NumberdList>
+          <NumberdList2>
             <li>
               当該情報が当社もしくは第三者の著作権その他の権利を明らかに侵害し、または当社もしくは第三者の名誉もしくは信用を毀損していると認められる場合
             </li>
@@ -221,17 +248,17 @@ const TermsOfService = () => {
               法令上の根拠に基づき官公庁、公的機関から削除するよう命令を受けた場合
             </li>
             <li>その他本サービスの運営にとって不適切と認められる場合</li>
-          </NumberdList>
+          </NumberdList2>
         </li>
         <li>
           当社は、相当の事由があると認められる場合には、何らの通知なく、利用者が本サービスの全部または一部にアクセスすることを拒否することができるものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第13条 本サービスの停止</Heading1>
-      <p>
+      <Text>
         当社は、以下の各号のいずれかに該当する場合には、利用者に事前に通知を行うことなく、本サービスの全部または一部の提供を停止することができるものとします。
-      </p>
-      <NumberdList>
+      </Text>
+      <NumberdList1>
         <li>システムの定期保守および緊急保守のために必要な場合</li>
         <li>
           火災、停電、システム障害、第三者による妨害行為などにより本サービスの提供が困難になった場合
@@ -240,9 +267,9 @@ const TermsOfService = () => {
           天災地変、戦争、テロ、内乱、暴動、労働争議、法令等の改廃・制定、政府等による命令・処分・指導等の公権力の行使、感染症、その他当社の合理的支配を超えた事態が発生し、または、発生するおそれがある場合
         </li>
         <li>その他、止むを得ず本サービスの停止が必要と当社が判断した場合</li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第14条 その他免責事項</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           当社は、個別の利用者に対して通知義務を負う場合は、当該利用者があらかじめ登録しているメールアドレスへ通知をすることにより、利用者一般に対して通知義務を負う場合は、当社のウェブサイトに掲載することにより、また、利用者に商品をお届けする場合は、商品購入の際に当該利用者が指示した送付先に商品を配送することにより、その義務を果たしたものとします。
         </li>
@@ -264,7 +291,7 @@ const TermsOfService = () => {
         <li>
           利用者は、本サービスの利用に用いるブラウザとして、以下の推奨ブラウザを使用するものとし、当社の推奨ブラウザ以外のブラウザを使用したことで生じる問題について、当社は一切の責任を負わず、また一切の質問も受け付けないものとします。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading2>推奨ブラウザ</Heading2>
       <BulletedList>
         <li>Google Chrome</li>
@@ -275,37 +302,37 @@ const TermsOfService = () => {
         <li>iOS用のApple Safari</li>
         <li>Android用のGoogle Chrome</li>
       </BulletedList>
-      <p>※ 当サイトの閲覧にはJavascriptを有効にして頂く必要があります。</p>
+      <Text>※ 当サイトの閲覧にはJavascriptを有効にして頂く必要があります。</Text>
       <Heading1>第15条 譲渡禁止</Heading1>
-      <p>
+      <Text>
         利用者は、当社の書面による事前の承諾がない限り、本規約および売買契約に基づく権利義務を第三者に譲渡してはならないものとします。
-      </p>
+      </Text>
       <Heading1>第16条 秘密保持</Heading1>
-      <p>
+      <Text>
         利用者は、本サービスに関連して当社が利用者に対し秘密に取り扱うことを求めて開示した非公知の情報について、秘密として取り扱うものとし、第三者に開示してはならないものとします。
-      </p>
+      </Text>
       <Heading1>第17条 本規約の変更</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           本規約は、利用者一般の利益に適合する場合の他、提供するサービスの変更、法令・ガイドライン等の変更、監督官庁の指示、利用者のニーズの変化、金融、経済、社会情勢、競争環境、システム環境、物流事情その他諸般の状況の変化、経営状態の変化、その他の事由により、当社が必要と判断した場合、変更することができるものとします。
         </li>
         <li>
           当社は、本規約を変更する場合、その１か月以上前（変更内容によってこれより短い期間とする場合があります。）に、当社のウェブサイトに本規約を変更する旨および変更後の規約の内容ならびにその効力発生日を掲載します。但し、利用者一般の利益に適合する場合や軽微な変更は予告期間を設けずに本規約を変更する場合があります。
         </li>
-      </NumberdList>
+      </NumberdList1>
       <Heading1>第18条 準拠法</Heading1>
-      <p>
+      <Text>
         本規約および売買契約の成立、効力、履行および解釈に関しては、日本法が適用されるものとします。
-      </p>
+      </Text>
       <Heading1>第19条 管轄裁判所</Heading1>
-      <NumberdList>
+      <NumberdList1>
         <li>
           本規約および本サービスに関連して利用者と当社の間で問題が生じた場合には、利用者と当社で誠意を持って協議しこれを解決するものとします。
         </li>
         <li>
           前項の規定にもかかわらず、協議しても解決しない場合は、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
         </li>
-      </NumberdList>
+      </NumberdList1>
     </Layout>
   );
 };
