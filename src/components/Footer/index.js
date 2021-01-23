@@ -39,6 +39,7 @@ export const Footer = () => {
       </ul>
       <div>
         <Link to="/terms-of-service">利用規約 ｜</Link>
+        <Link to="/shipping-policy">配送ポリシー ｜</Link>
         <Link to="/refund-policy">返金ポリシー ｜</Link>
         <div>プライバシー規約 ｜</div>
         <div>
