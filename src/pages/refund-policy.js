@@ -49,7 +49,7 @@ const RefundPolicy = () => {
         尚、ご返金は返品確認後にお手続きをさせていただきます。予めご了承ください。
       </Text>
       <Heading1>3.連絡と返品の方法について</Heading1>
-      <Text>以下の項目をコピーして、info@xxx.jp へメールください。</Text>
+      <Text>以下の項目をコピーして、info@xxx.jp へメールしてください。</Text>
 
       <TextCode>
         <div>1. ご注文番号：</div>

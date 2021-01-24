@@ -38,6 +38,7 @@ export const Footer = () => {
         />
       </ul>
       <div>
+        <Link to="/indication-for-act">特定商取引法に基づく表記</Link><span> ｜</span>
         <Link to="/terms-of-service">利用規約</Link><span> ｜</span>
         <Link to="/shipping-policy">配送ポリシー</Link><span> ｜</span>
         <Link to="/refund-policy">返金ポリシー</Link><span> ｜</span>
