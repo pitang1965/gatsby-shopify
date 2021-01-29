@@ -102,8 +102,8 @@ const IndicationForAct = () => {
             <Cell>{item.name}</Cell>
             {Array.isArray(item.description) ? (
               <Cell>
-                {item.description.map(desc => (
-                  <div>{desc}</div>
+                {item.description.map((desc, index) => (
+                  <div key={index}>{desc}</div>
                 ))}
               </Cell>
             ) : (
