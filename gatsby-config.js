@@ -11,9 +11,16 @@ module.exports = {
     title: `Over 40 Web Shop`,
     description: `Over 40 Web Shop は Over 40 Web Club が運営するオンラインショップです。`,
     author: `@pitang1965`,
-    url: 'https://over40webshop.netlify.app',
     image: '/images/twitter.png',
     twitterUsername: '@pitang1965',
+    seller: 'ピータン株式会社', // 販売業者
+    shopName: 'Over 40 Web Shop', // 店名
+    operationManager: 'ピータン', // 運営責任者
+    address: '東京都いなか市 123番地', // 住所
+    tel: '0120-1234-5678', // 電話番号
+    email: 'info@pitang1965.com', // メールアドレス
+    contactInfo: '電話番号：0120-1234-5678 (9:00～17:00)',
+    url: 'https://over40webshop.netlify.app', // URL
   },
   plugins: [
     `gatsby-plugin-styled-components`,

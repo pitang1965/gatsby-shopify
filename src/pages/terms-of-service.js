@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SEO, Layout } from 'components';
-
-const organization = 'ピータン株式会社';
-const shopName = 'Over 40 Web Shop';
-const email = 'xxx@pitang1965.com';
-const contactInfo = '電話番号：090-9999-9999 (9:00～17:00)';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Title = styled.div`
   font-size: 200%;
@@ -75,13 +71,30 @@ const BulletedList = styled.ul`
 `;
 
 const TermsOfService = () => {
+  const {
+    site: {
+      meta: { seller, shopName, email, contactInfo },
+    },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        meta: siteMetadata {
+          seller
+          shopName
+          email
+          contactInfo
+        }
+      }
+    }
+  `);
+
   return (
     <Layout>
       <SEO description="Over 40 Web Shop" title="利用規約" />
       <Title>利用規約</Title>
       <Heading1>第1条 本規約の適用範囲および変更</Heading1>
       <Text>
-        本規約は、{organization}
+        本規約は、{seller}
         (以下「当社」といいます。）が運営するネットショップ（オンラインストア）である「
         {shopName}
         」（以下「本サービス」といいます。）の提供およびその利用に関し、本サービスの閲覧、購入などの利用を行う者（以下「利用者」といいます。）と

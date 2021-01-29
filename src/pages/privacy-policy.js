@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { SEO, Layout } from 'components';
-
-const organization = 'ピータン株式会社';
-const shopName = 'Over 40 Web Shop';
-const contactInfo = '電話番号：090-9999-9999 (9:00～17:00)';
+import { graphql, useStaticQuery } from 'gatsby';
 
 const Title = styled.div`
   font-size: 200%;
@@ -60,12 +57,27 @@ const NumberdList2 = styled.ol`
 `;
 
 const TermsOfService = () => {
+  const {
+    site: {
+      meta: { seller, shopName, contactInfo },
+    },
+  } = useStaticQuery(graphql`
+    {
+      site {
+        meta: siteMetadata {
+          seller
+          shopName
+          contactInfo
+        }
+      }
+    }
+  `);
   return (
     <Layout>
       <SEO description="Over 40 Web Shop" title="プライバシーポリシー" />
       <Title>プライバシーポリシー</Title>
       <Text>
-        {organization}
+        {seller}
         （以下「当社」といいます）は、個人情報の重要性を十分に認識し、個人情報を適切に取り扱うことを当社にとっての重要な責務と考えます。当社は以下の方針を掲げ、これを徹底し、個人情報の保護に努めてまいります。
       </Text>
       <Heading1>1. 法令の遵守</Heading1>
