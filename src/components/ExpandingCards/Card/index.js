@@ -1,24 +1,62 @@
 import React from 'react';
 import { CardWrapper, Title, Description } from './styles';
+import { graphql, useStaticQuery } from 'gatsby';
+import BackgroundImage from 'gatsby-background-image';
 import PropTypes from 'prop-types';
 
-// Gatsbyの場合は
-// import Img from 'gatsby-image';
-// Cardの引数 url を imageFluid に変更
-// retur() 内に <Img fluid={imageFluid} /> を追加
+const CardBackground = ({ className, children, path }) => {
+  const data = useStaticQuery(
+    graphql`
+      query {
+        allFile {
+          edges {
+            node {
+              relativePath
+              childImageSharp {
+                fluid(maxWidth: 1200) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
+            }
+          }
+        }
+      }
+    `
+  );
 
-const Card = ({ id, isActive, onClick, title, description, url }) => {
+  const edge = data.allFile.edges.find(edge => edge.node.relativePath === path);
+  const bacgroundStack = [
+    edge.node.childImageSharp.fluid,
+  ];
+
+  return (
+    <BackgroundImage
+      // Tag="section"
+      className={className}
+      fluid={bacgroundStack}
+      // backgroundColor={`#040e18`}
+      // title="Art-Directed Fullscreen Background"
+      // id="adfullscreenbg"
+      // role="img"
+      // aria-label="Art-Directed Fullscreen Background"
+      // preserveStackingContext={true}
+    >
+      {children}
+    </BackgroundImage>
+  );
+};
+
+const Card = ({ id, isActive, onClick, title, description, path }) => {
   const handleClick = () => {
     onClick(id);
   };
+
   return (
-    <CardWrapper
-      onClick={handleClick}
-      isActive={isActive}
-      style={{ backgroundImage: `url(${url})` }}
-    >
-      <Title isActive={isActive}>{title}</Title>
-      <Description isActive={isActive}>{description}</Description>
+    <CardWrapper onClick={handleClick} isActive={isActive}>
+      <CardBackground path={path}>
+        <Title isActive={isActive}>{title}</Title>
+        <Description isActive={isActive}>{description}</Description>
+      </CardBackground>
     </CardWrapper>
   );
 };
@@ -29,7 +67,7 @@ Card.propTypes = {
   onClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  url: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
 };
 
 export default Card;

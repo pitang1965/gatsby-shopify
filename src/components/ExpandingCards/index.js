@@ -6,22 +6,22 @@ const cardsData = [
   {
     title: "春",
     description: "春をながめる余裕もなく",
-    url: "https://software.pitang1965.com/tmp/card1.jpg",
+    path: "card1.jpg",
   },
   {
     title: "夏",
     description: "夏をのりきる力もなく",
-    url: "https://software.pitang1965.com/tmp/card2.jpg",
+    path: "card2.jpg",
   },
   {
     title: "秋",
     description: "秋の枯葉に身をつつみ",
-    url: "https://software.pitang1965.com/tmp/card3.jpg",
+    path: "card3.jpg",
   },
     {
     title: "冬",
     description: "冬に骨身をさらけだす",
-    url: "https://software.pitang1965.com/tmp/card4.jpg",
+    path: "card4.jpg",
   },
 ];
 
@@ -42,7 +42,7 @@ export const ExpandingCards = () => {
           isActive={index === activeCardIndex}
           title={card.title}
           description={card.description}
-          url={card.url}
+          path={card.path}
         />
       ))}
     </ExpandingCardsWrapper>

@@ -4,6 +4,9 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
+    flags: {
+      DEV_SSR: true
+    },
     links: {
       twitter: 'https://twitter.com/pitang1965',
       instagram: 'https://www.instagram.com/pitang1965/',

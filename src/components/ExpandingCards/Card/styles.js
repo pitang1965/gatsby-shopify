@@ -9,10 +9,10 @@ const vibration = keyframes`
 `;
 
 export const CardWrapper = styled.div`
+  display: flex;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 80vh;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   color: #fff;
@@ -41,6 +41,12 @@ export const CardWrapper = styled.div`
             animation-iteration-count: 3;
             animation-timing-function: ease-out;
           `};
+  }
+
+  max-height: 100vh;
+  height: 300px;
+  > div {
+    flex-grow: 1;
   }
 `;
 
