@@ -9,9 +9,11 @@ export const productFields = graphql`
       id
       localFile {
         childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(
+            width: 1200
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
         }
       }
     }

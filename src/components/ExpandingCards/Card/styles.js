@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import BackgroundImage from 'gatsby-background-image';
 
 const vibration = keyframes`
   0% {transform: translate(0px, 0px) rotateZ(0deg)}
@@ -80,4 +81,12 @@ export const Description = styled.div`
       opacity: 1;
       transition: opacity 0.6s ease-in 0.8s;
     `}
+`;
+
+
+export const StyledBackground = styled(BackgroundImage)`
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;

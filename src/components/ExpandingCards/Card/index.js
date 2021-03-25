@@ -1,21 +1,26 @@
 import React from 'react';
-import { CardWrapper, Title, Description } from './styles';
+import { CardWrapper, Title, Description, StyledBackground } from './styles';
 import { graphql, useStaticQuery } from 'gatsby';
-import BackgroundImage from 'gatsby-background-image';
+
+// gatsby-background-image(V1.5) をGatsby 3 & gatsby-plugin-image と使うための暫定対応
+import { getImage } from 'gatsby-plugin-image';
+import { convertToBgImage } from 'gbimage-bridge';
 import PropTypes from 'prop-types';
 
-const CardBackground = ({ className, children, path }) => {
+const CardBackground = ({ children, path }) => {
   const data = useStaticQuery(
     graphql`
-      query {
+      {
         allFile {
           edges {
             node {
               relativePath
               childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 1200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }
@@ -25,24 +30,13 @@ const CardBackground = ({ className, children, path }) => {
   );
 
   const edge = data.allFile.edges.find(edge => edge.node.relativePath === path);
-  const bacgroundStack = [
-    edge.node.childImageSharp.fluid,
-  ];
+  const image = getImage(edge.node.childImageSharp);
+  const bgImage = convertToBgImage(image);
 
   return (
-    <BackgroundImage
-      // Tag="section"
-      className={className}
-      fluid={bacgroundStack}
-      // backgroundColor={`#040e18`}
-      // title="Art-Directed Fullscreen Background"
-      // id="adfullscreenbg"
-      // role="img"
-      // aria-label="Art-Directed Fullscreen Background"
-      // preserveStackingContext={true}
-    >
+    <StyledBackground {...bgImage}>
       {children}
-    </BackgroundImage>
+    </StyledBackground>
   );
 };
 

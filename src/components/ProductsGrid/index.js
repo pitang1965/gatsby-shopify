@@ -8,7 +8,7 @@ export const ProductsGrid = ({ products }) => {
       {products.map(product => (
         <ProductTile
           key={product.shopifyId}
-          imageFluid={product.images[0].localFile.childImageSharp.fluid}
+          image={product.images[0].localFile.childImageSharp.gatsbyImageData}
           title={product.title}
           description={product.description}
           minPrice={product.priceRange.minVariantPrice.amount}

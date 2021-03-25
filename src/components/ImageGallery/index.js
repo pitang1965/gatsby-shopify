@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'gatsby-image';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { ImageGalleryWrapper } from './styles';
 import ImageThumbnail from './ImageThumbnail';
 
@@ -9,7 +9,9 @@ export const ImageGallery = ({ selectedVariantImageId, images }) => {
   );
 
   useEffect(() => {
-    setActiveImageThumbnail(images.find(({ id }) => id === selectedVariantImageId) || images[0]);
+    setActiveImageThumbnail(
+      images.find(({ id }) => id === selectedVariantImageId) || images[0]
+    );
   }, [selectedVariantImageId, setActiveImageThumbnail, images]);
 
   const handleClick = image => {
@@ -19,7 +21,9 @@ export const ImageGallery = ({ selectedVariantImageId, images }) => {
   return (
     <ImageGalleryWrapper>
       <div>
-        <Image fluid={activeImageThumbnail.localFile.childImageSharp.fluid} />
+        <GatsbyImage
+          image={activeImageThumbnail.localFile.childImageSharp.gatsbyImageData} alt='active image thumbnail'
+        />
       </div>
       <div>
         {images.map(image => {

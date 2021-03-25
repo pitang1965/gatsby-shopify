@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 import { StyledLink } from '../StyledLink';
+import BackgroundImage from 'gatsby-background-image';
 
-export const CollectionTileWrapper = styled.div`
+export const CollectionTileWrapper = styled(BackgroundImage)`
   height: 300px;
   max-height: 100vh;
   display: flex;

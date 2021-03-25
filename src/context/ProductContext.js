@@ -10,6 +10,7 @@ const query = graphql`
     }
     handle
   }
+
   {
     allShopifyProduct {
       edges {
@@ -32,9 +33,11 @@ const query = graphql`
           image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 1200) {
-                  ...GatsbyImageSharpFluid_withWebp
-                }
+                gatsbyImageData(
+                  width: 1200
+                  placeholder: BLURRED
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
           }

@@ -1,10 +1,10 @@
 import React from 'react';
 import { ProductTileWrapper, Title, Description, Price } from './styles';
-import Img from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 import { StyledLink } from '../StyledLink';
 
 export const ProductTile = ({
-  imageFluid,
+  image,
   title,
   description,
   minPrice,
@@ -12,7 +12,7 @@ export const ProductTile = ({
 }) => {
   return (
     <ProductTileWrapper>
-      <Img fluid={imageFluid} />
+      <GatsbyImage image={image} alt={ title }/>
       <Title>{title}</Title>
       <Description>{description}</Description>
       <Price>&yen;{parseInt(minPrice).toLocaleString()} より</Price>
