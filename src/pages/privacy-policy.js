@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SEO, Layout } from 'components';
+import { Seo, Layout } from 'components';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Title = styled.div`
@@ -74,7 +74,7 @@ const TermsOfService = () => {
   `);
   return (
     <Layout>
-      <SEO description="Over 40 Web Shop" title="プライバシーポリシー" />
+      <Seo description="Over 40 Web Shop" title="プライバシーポリシー" />
       <Title>プライバシーポリシー</Title>
       <Text>
         {seller}

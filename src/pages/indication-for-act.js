@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SEO, Layout } from 'components';
+import { Seo, Layout } from 'components';
 import { graphql, useStaticQuery } from 'gatsby';
 
 const Title = styled.div`
@@ -91,7 +91,7 @@ const IndicationForAct = () => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         description="Over 40 Web Shop"
         title="特定商取引に関する法律に基づく表記"
       />

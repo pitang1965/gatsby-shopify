@@ -1,10 +1,10 @@
 import React from 'react';
-import { Layout, CartContents, SEO } from 'components';
+import { Layout, CartContents, Seo } from 'components';
 
 const CartPage = () => {
   return (
     <Layout>
-      <SEO
+      <Seo
         description="Over 40 Web Shop"
         title="ショッピングカート"
       />

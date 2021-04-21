@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import {
-  SEO,
+  Seo,
   Layout,
   ExpandingCards,
   HomepageCollectionsGrid,
@@ -13,7 +13,7 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <SEO description="Over 40 Web Shop" title="ホームページ" />
+      <Seo description="Over 40 Web Shop" title="ホームページ" />
       <ExpandingCards />
       <HomepageCollectionsGrid
         collections={collections.filter(

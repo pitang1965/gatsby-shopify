@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import {
-  SEO,
+  Seo,
   Layout,
   ImageGallery,
   ProductQuantityAdder,
@@ -56,7 +56,7 @@ const ProductTemplate = props => {
 
   return (
     <Layout>
-      <SEO
+      <Seo
         title={props.data.shopifyProduct.title}
         description={props.data.shopifyProduct.description}
       />

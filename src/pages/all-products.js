@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { SEO, Layout, Filters, ProductsGrid } from 'components';
+import { Seo, Layout, Filters, ProductsGrid } from 'components';
 import ProductContext from 'context/ProductContext';
 import styled from 'styled-components';
 import queryString from 'query-string';
@@ -62,7 +62,7 @@ const AllProducts = () => {
 
   return (
     <Layout>
-      <SEO title="全ての商品" description="Over 40 Web Shop" />
+      <Seo title="全ての商品" description="Over 40 Web Shop" />
       {!!searchTerm && !!filteredProducts.length && (
         <h3>
           <strong>"{searchTerm}"</strong> で検索

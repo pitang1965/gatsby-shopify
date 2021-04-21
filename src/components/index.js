@@ -1,4 +1,4 @@
-export * from './SEO';
+export * from './Seo';
 export * from './Layout';
 export * from './ImageGallery';
 export * from './ProductQuantityAdder';

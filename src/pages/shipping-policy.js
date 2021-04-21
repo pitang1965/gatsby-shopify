@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SEO, Layout } from 'components';
+import { Seo, Layout } from 'components';
 
 const Title = styled.div`
   font-size: 200%;
@@ -32,7 +32,7 @@ const Text = styled.p`
 const ShippingPolicy = () => {
   return (
     <Layout>
-      <SEO description="Over 40 Web Shop" title="配送ポリシー" />
+      <Seo description="Over 40 Web Shop" title="配送ポリシー" />
       <Title>配送ポリシー</Title>
       <Heading1>配送について（国内）</Heading1>
       <Heading2>配送料金</Heading2>

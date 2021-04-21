@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { SEO, Layout } from 'components';
+import { Seo, Layout } from 'components';
 
 const Title = styled.div`
   font-size: 200%;
@@ -32,7 +32,7 @@ const TextCode = styled.div`
 const RefundPolicy = () => {
   return (
     <Layout>
-      <SEO description="Over 40 Web Shop" title="返金ポリシー" />
+      <Seo description="Over 40 Web Shop" title="返金ポリシー" />
       <Title>返金ポリシー</Title>
       <Heading1>1. 不具合（事故品）による返品対応</Heading1>
       <Text>
